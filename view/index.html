@@ -3,16 +3,68 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title></title>
-
     <!-- rev-hash -->
-    <!-- inject:js -->
+    <!-- inject:css -->
     <!-- endinject -->
     <!-- end -->
-
+    <link href="./../style/css/index.css">
 </head>
 <body>
+@@include('common/header.html')
+<div class="container">
 
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide-1">
+                <p>Slide 1</p>
+            </div>
+            <div class="swiper-slide slide-2">
+                <p>Slide 2</p>
+            </div>
+            <div class="swiper-slide slide-3">
+                <p>Slide 3</p>
+            </div>
+            <div class="swiper-slide slide-4">
+                <p>Slide 4</p>
+            </div>
+            <div class="swiper-slide slide-5">
+                <p>Slide 5</p>
+            </div>
+            <div class="swiper-slide slide-6">
+                <p>Slide 6</p>
+            </div>
+            <div class="swiper-slide slide-7">
+                <p>Slide 7</p>
+            </div>
+            <div class="swiper-slide slide-8">
+                <p>Slide 8</p>
+            </div>
+            <div class="swiper-slide slide-9">
+                <p>Slide 9</p>
+            </div>
+            <div class="swiper-slide slide-10">
+                <p>Slide 10</p>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+
+    </div>
+</div>
 @@include('common/footer.html')
+
+<!-- rev-hash -->
+<!-- inject:js -->
+<!-- endinject -->
+<!-- end -->
+
+<script src="../src/fn/index.js"></script>
 </body>
 </html>

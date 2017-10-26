@@ -194,11 +194,17 @@ gulp.task('packHtml', ['sass', 'scripts'], function () {
     if (DEST.indexOf('build') != -1) {
         srcArr = [
             './src/plugin/jq/jq.js',
+            './src/plugin/swiper/swiper.js',
+            './style/css/reset.css',
+            './src/plugin/swiper/swiper.css'
         ];
 
     } else {
         srcArr = [
-            './src/plugin/jq/jq.js',
+            './src/plugin/jq/jq.min.js',
+            './src/plugin/swiper/swiper.min.js',
+            './style/css/reset.css',
+            './src/plugin/swiper/swiper.css'
 
         ];
     }
