@@ -200,22 +200,27 @@
 
 @keyframes tada {
   from {
+    opacity: 1;
     transform: scale3d(1, 1, 1);
   }
 
   10%, 20% {
+    opacity: 1;
     transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
   }
 
   30%, 50%, 70%, 90% {
+    opacity: 1;
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
   }
 
   40%, 60%, 80% {
+    opacity: 1;
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
   }
 
   to {
+    opacity: 1;
     transform: scale3d(1, 1, 1);
   }
 }
@@ -834,26 +839,31 @@
 
 @keyframes flip {
   from {
+    opacity: 0;
     transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
     animation-timing-function: ease-out;
   }
 
   40% {
+    opacity: 1;
     transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
     animation-timing-function: ease-out;
   }
 
   50% {
+    opacity: 1;
     transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
     animation-timing-function: ease-in;
   }
 
   80% {
+    opacity: 1;
     transform: perspective(400px) scale3d(.95, .95, .95);
     animation-timing-function: ease-in;
   }
 
   to {
+    opacity: 1;
     transform: perspective(400px);
     animation-timing-function: ease-in;
   }
@@ -1286,7 +1296,7 @@
     transform: scale3d(.3, .3, .3);
   }
 
-  50% {
+  to {
     opacity: 1;
   }
 }
