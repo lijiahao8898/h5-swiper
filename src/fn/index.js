@@ -1,7 +1,7 @@
 /**
  * Created by lijiahao on 16/8/2.
  */
-;(function (swal) {
+;(function () {
     var main = {
         init: function () {
             this.isAjax = false;
@@ -65,7 +65,6 @@
                     },
                     slideChangeTransitionEnd: function () {
                         var slider = $('.swiper-slide').eq(mySwiper.activeIndex);
-                        console.log(mySwiper.activeIndex);
                         that.removeAnimateClass(slider);
                         that.theAnimation(slider, mySwiper.activeIndex);
                     }
@@ -214,7 +213,6 @@
 
                 },
                 complete: function () {
-                    console.log('完成!');
                     setTimeout(function () {
                         that.isAjax = false;
                     }, 1000)
@@ -232,4 +230,4 @@
     $(function () {
         main.init()
     })
-})(swal);
+})();

@@ -91,9 +91,6 @@ gulp.task('scripts', function () {
     if (DEST.indexOf('build') != -1) {
         // build
         return gulp.src([
-            './src/fn/common/smartresize.js',
-            './src/fn/common/api.js',
-            './src/fn/common/handle.js',
             './src/fn/common/common.js'
         ])
             .pipe(concat('common.js'))
@@ -105,9 +102,6 @@ gulp.task('scripts', function () {
     } else {
         // html
         return gulp.src([
-            './src/fn/common/smartresize.js',
-            './src/fn/common/api.js',
-            './src/fn/common/handle.js',
             './src/fn/common/common.js'
         ])
             .pipe(concat('common.js'))
