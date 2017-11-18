@@ -22,14 +22,22 @@
 <body>
 @@include('common/header.html')
 <div class="container">
-
+    <div class="music">
+        <img src="./../style/images/music.svg">
+        <audio id="bgMusic" loop="loop">
+            <source src="./../style/music/01WalksLikeRihanna.m4a" type="audio/mpeg"/>
+            您的浏览器不支持 audio 标签。
+        </audio>
+    </div>
     <!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide slide-1">
                 <div class="swipe-wrapper">
                     <div class="swipe-content">
-                        <div class="animated animated-fadeInDownBig title"><img class="swiper-lazy" data-src="./../style/images/1-1.png"></div>
+                        <div class="animated animated-fadeInDownBig title"><img class="swiper-lazy"
+                                                                                data-src="./../style/images/1-1.png">
+                        </div>
                         <div class="swipe-detail">
                             <ul>
                                 <li class="list-1 animated-fadeIn">
@@ -214,7 +222,8 @@
                 <div class="swipe-wrapper">
                     <div class="swipe-content">
                         <div class="top">
-                            <div class="main-item animated-fadeIn"><img class="swiper-lazy" data-src="./../style/images/7-9.png"></div>
+                            <div class="main-item animated-fadeIn"><img class="swiper-lazy"
+                                                                        data-src="./../style/images/7-9.png"></div>
                             <div class="swipe-item item-img-1 animated-rotateIn">
                                 <img class="swiper-lazy" data-src="./../style/images/7-1.png">
                             </div>
@@ -236,8 +245,10 @@
                         </div>
                         <div class="content">
                             <ul>
-                                <li class="item-img-7 animated-bounceIn"><img class="swiper-lazy" data-src="./../style/images/7-7.png"></li>
-                                <li class="item-img-8 animated-wobble"><img class="swiper-lazy" data-src="./../style/images/7-8.png"></li>
+                                <li class="item-img-7 animated-bounceIn"><img class="swiper-lazy"
+                                                                              data-src="./../style/images/7-7.png"></li>
+                                <li class="item-img-8 animated-wobble"><img class="swiper-lazy"
+                                                                            data-src="./../style/images/7-8.png"></li>
                                 <li class="content-font">
                                     <p class="animated-left"><span class="arrow-right">→</span>自带百万流量</p>
                                     <p class="animated-left"><span class="arrow-right">→</span>免费开放上千品牌资源池</p>
@@ -256,29 +267,52 @@
                             <img class="swiper-lazy" data-src="./../style/images/8-1.png">
                         </div>
                         <div class="content">
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-3.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-4.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-5.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-6.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-7.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-8.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-9.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-10.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-11.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-12.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-13.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-14.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-15.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-16.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-17.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-18.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-19.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-20.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-21.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-22.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-23.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-24.png"></div>
-                            <div class="swipe-item animated-bottom"><img class="swiper-lazy" data-src="./../style/images/8-25.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-3.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-4.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-5.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-6.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-7.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-8.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-9.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-10.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-11.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-12.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-13.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-14.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-15.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-16.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-17.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-18.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-19.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-20.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-21.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-22.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-23.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-24.png"></div>
+                            <div class="swipe-item animated-bottom"><img class="swiper-lazy"
+                                                                         data-src="./../style/images/8-25.png"></div>
                         </div>
                     </div>
                 </div>

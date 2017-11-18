@@ -5,8 +5,97 @@
     var main = {
         init: function () {
             this.isAjax = false;
+            this.initRem();
             this.initSwiper();
             this.addEvent();
+
+            var that = this;
+            var audio = document.getElementById("bgMusic");
+            var isPlaying = false;
+            var container = document.querySelector('.music');
+            var image = container.querySelector('img');
+
+            image.addEventListener('click', function bindEvent() {
+                if (that.isWifi()) {
+                    isPlaying ? pause() : play();
+                } else {
+                    if(isPlaying){
+                        pause();
+                    }else{
+                        swal({
+                            title: "温馨提醒",
+                            text: "当前网络环境可能不是在WIFI情况下，是否继续播放音乐？",
+                            buttons: [
+                                "取消", "继续"
+                            ],
+                            dangerMode: true
+                        })
+                            .then(function (willDelete) {
+                                if (willDelete) {
+                                    isPlaying ? pause() : play();
+                                } else {
+
+                                }
+                            });
+                    }
+                }
+            });
+
+            if (that.isWifi()) {
+                // JS绑定自动播放（操作window时，播放音乐）
+                $(window).one('touchstart', function(){
+                    play();
+                });
+                // 微信下兼容处理
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    play();
+                }, false);
+            }
+
+            function pause() {
+                isPlaying = false;
+                var iTransform = getComputedStyle(image).transform;
+                var cTransform = getComputedStyle(container).transform;
+                container.style.transform = cTransform === 'none'
+                    ? iTransform
+                    : iTransform.concat(' ', cTransform);
+                image.classList.remove('music-on');
+                audio.pause();
+            }
+
+            function play() {
+                isPlaying = true;
+                image.classList.add('music-on');
+                audio.play();
+            }
+        },
+        isWifi: function () {
+            var ua = window.navigator.userAgent.toLocaleLowerCase();
+            if (this.isWeixin()) {
+                if (ua.indexOf('wifi') != -1) {
+                    // wifi
+                    return true
+                } else {
+                    return false
+                }
+            } else {
+                return false
+            }
+        },
+        isWeixin: function () {
+            var ua = window.navigator.userAgent.toLocaleLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            }
+            return false;
+        },
+        initRem: function () {
+            var width = window.innerWidth > 414 ? 414 : window.innerWidth;
+            var rem = width / 640;
+            var docEl = document.documentElement;
+            var fontEl = document.createElement('style');
+            docEl.firstElementChild.appendChild(fontEl);
+            fontEl.innerHTML = 'html{font-size:' + rem + 'px;}';
         },
         /**
          * 初始化alert提示框
@@ -14,7 +103,10 @@
          */
         swalAlert: function (message) {
             swal(message, {
-                closeOnClickOutside: false
+                closeOnClickOutside: false,
+                button: {
+                    text: "确认"
+                }
             });
         },
         addEvent: function () {
@@ -45,7 +137,9 @@
                 on: {
                     init: function () {
                         var slider = $('.swiper-slide').eq(0);
-                        that.theAnimation(slider, 0)
+                        that.isImageOnLoading(slider, function () {
+                            that.theAnimation(slider, 0)
+                        });
                     },
                     slideChange: function () {
                         var sliderAll = $('.swiper-slide');
@@ -66,7 +160,9 @@
                     slideChangeTransitionEnd: function () {
                         var slider = $('.swiper-slide').eq(mySwiper.activeIndex);
                         that.removeAnimateClass(slider);
-                        that.theAnimation(slider, mySwiper.activeIndex);
+                        that.isImageOnLoading(slider, function () {
+                            that.theAnimation(slider, mySwiper.activeIndex)
+                        });
                     }
                 },
                 lazy: {
@@ -100,9 +196,11 @@
                             animation: "swiper 2s " + (i * 0.4) + "s forwards"
                         })
                     }
-                    slider.find('.animated-fadeIn').css({
-                        animation: "animated-fadeIn 1.5s 1s ease-out forwards"
-                    });
+                    for (var q = 0; q < slider.find('.animated-fadeIn').length; q++) {
+                        slider.find('.animated-fadeIn').eq(q).css({
+                            animation: "animated-fadeIn 2s " + (q * 0.4) + "s ease-out forwards"
+                        });
+                    }
                     setTimeout(function () {
                         slider.find('.animated-zoomIn').css({
                             animation: "zoomIn 2s forwards"
@@ -193,6 +291,33 @@
                     break;
             }
         },
+        isImageOnLoading: function (slider, callback) {
+            var t_img; // 定时器
+            var isLoad = true; // 控制变量
+            var that = this;
+
+            // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+            // 查找所有封面图，迭代处理
+            slider.find('img').each(function () {
+                // 找到为0就将isLoad设为false，并退出each
+                if (this.height === 0) {
+                    isLoad = false;
+                    return false;
+                }
+            });
+            // 为true，没有发现为0的。加载完毕
+            if (isLoad) {
+                clearTimeout(t_img); // 清除定时器
+                // 回调函数
+                callback();
+                // 为false，因为找到了没有加载完成的图，将调用定时器递归
+            } else {
+                isLoad = true;
+                t_img = setTimeout(function () {
+                    that.isImageOnLoading(slider, callback); // 递归扫描
+                }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+            }
+        },
         /**
          * 提交用户数据
          * @param data
@@ -228,6 +353,8 @@
     };
     // run
     $(function () {
-        main.init()
+        setTimeout(function () {
+            main.init();
+        }, 1000)
     })
 })();

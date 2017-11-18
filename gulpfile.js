@@ -234,6 +234,11 @@ gulp.task('copy-stub', function () {
         .pipe(gulp.dest(DEST + '/src/stub'))
 });
 
+gulp.task('copy-music', function () {
+    return gulp.src(['./style/music/*'])
+        .pipe(gulp.dest(DEST + '/style/music'))
+});
+
 gulp.task('copy-js', function () {
 
     if (DEST.indexOf('build') != -1) {
@@ -282,13 +287,13 @@ gulp.task('watch', function () {
 // Dev Task
 // 开发环境
 gulp.task('dev', ['build', 'clean'], function () {
-    gulp.start(['copy-plugin','copy-stub', 'copy-js', 'copy-img', 'browser-sync', 'watch']);
+    gulp.start(['copy-plugin','copy-stub', 'copy-js', 'copy-img','copy-music', 'browser-sync', 'watch']);
     console.log('============dev OK version!============')
 });
 
 // Rc Task
 // 生产环境
 gulp.task('rc', ['html', 'clean'], function () {
-    gulp.start(['copy-plugin', 'copy-stub', 'copy-js', 'copy-img', 'packHtml', 'hash']);
+    gulp.start(['copy-plugin', 'copy-stub', 'copy-js', 'copy-img','copy-music', 'packHtml', 'hash']);
     console.log('============rc OK version!============')
 });
